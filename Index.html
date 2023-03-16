@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>JS Assignment</title>
+        <script type="text/javascript">
+            window.onload= function GenerateTable() {
+                
+                var customers = new Array();
+                customers.push(["Name", "Age", "DOB" ,"Email" , "Company"]);
+                customers.push(["Sanyam Bansal", 22, "09/11/2001","sanyambansal07@gmail.com","Gemini Solutions"]);
+                customers.push(["Muzzakir Khan", 24, "21/10/2000" ,"Muzakir.Khan@gmail.com" ,"Gemini Solutions" ]);
+                customers.push(["Hardik Sangal",25, "28/12/2001" , "Hardik.Sangal@GeminiSolutions.in" ,"Gemini Solutions"]);
+                customers.push(["Virat Maan", 21,"21/7/2002" , "Virat.Maan@GeminiSolutions.in" ,"Gemini Solutions"]);
+                customers.push(["Akshay Verma", 25,"20/8/1990" , "Akshay.Verma@amazon.in" ,"Amazon"]);
+
+                var table = document.createElement("TABLE");
+                table.border = "1";
+                table.style.width = '100%'
+                table.style.border = '1px solid black';
+
+         
+                var columnCount = customers[0].length;
+         
+                var row = table.insertRow(-1);
+                for (var i = 0; i < columnCount; i++) {
+                    var headerCell = document.createElement("TH");
+                    headerCell.innerHTML = customers[0][i];
+                    row.appendChild(headerCell);
+                }
+         
+                for (var i = 1; i < customers.length; i++) {
+                    row = table.insertRow(-1);
+                    for (var j = 0; j < columnCount; j++) {
+                        var cell = row.insertCell(-1);
+                        cell.innerHTML = customers[i][j];
+                    }
+                }
+         
+                var dvTable = document.getElementById("divTable");
+                dvTable.innerHTML = "";
+                dvTable.appendChild(table);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="divTable"></div>
+    </body>
+</html>
